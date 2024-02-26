@@ -18,8 +18,8 @@ router.get('/', async (req, res) => {
 // get one product
 router.get('/:id', async (req, res) => {
   try {
-    const productData = await Product.fndByPk(req.params.id, {
-      include: [{ model: Category }, { model: Tag, through: ProductTag }],
+    const productData = await Product.findByPk(req.params.id, {
+      include: [{ model: Category, as: 'category' }, { model: Tag, as: 'tags' }],
     });
 
     if (!productData) {
@@ -39,7 +39,7 @@ router.post('/', async (req, res) => {
     const product = await Product.create(req.body);
 
     if (req.body.tagIds && req.body.tagIds.length) {
-      const productTagArr = req.body.tagIds.map((tag_id) => {
+      const productTagIdArr = req.body.tagIds.map((tag_id) => {
         return { product_id: product.id, tag_id };
       });
       await ProductTag.bulkCreate(productTagIdArr);
