@@ -22,6 +22,8 @@ The installation requirements for this project include Node.js and NPM to run Ja
 
 Once the application is running, you can interact with it through API endpoints using an HTTP client like Insomnia or through a web browser.
 
+Here is a video demonstrating full functionality: https://drive.google.com/file/d/1pbG8XR7xcraSJ0rYRf-yhsFj40kKS_2S/view
+
 ## Contributing
 
 Pull requests, and code review.
